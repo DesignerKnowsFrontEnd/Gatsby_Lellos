@@ -1,0 +1,207 @@
+input {
+    background: transparent;
+    border: 1px solid $primary;
+    padding: 10px 20px;
+    color: $primary;
+    border-radius: 50px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all ease-in 0.3s;
+    width: 100%;
+
+    &:focus {
+        background-color: $white;
+    }
+
+    &:hover, :focus, :focus-within {
+        background: $white;
+    }
+
+    &[type=submit] {
+        background-color: $primary;
+        color: $white;
+        border-radius: 50px;
+        padding: 11px 20px;
+        padding: 12px 30px;
+        font-weight: 700;
+        margin-top: 10px;
+        width: 100%;
+
+        &:hover {
+            background-color:  darken($primary, 10%);;
+        }
+    }
+}
+
+.contact-form {
+    height: 750px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: $white;
+    box-shadow: 0px 16px 25px rgba(0, 0, 0, 0.17);
+
+    &-group {
+        display: grid;
+        width: 100%;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        
+    }
+
+    &-input {
+        width: 100%;
+        margin: 10px 0;
+        border-radius: 0;
+        border-color: $light-grey;
+        color: $secondary;
+        font-size: 16px;
+        font-weight: 400;
+
+        &:focus {
+            border-color: $primary;
+        }
+
+        
+
+        &::placeholder {
+            color: $secondary;
+            opacity: 1;
+            
+        }
+    }
+}
+
+.form-title {
+    margin-top: -20px;
+    text-align: center;
+}
+
+#message {
+    
+    width: 100%;
+    height: 150px;
+    resize: none;
+    padding: 12px 20px;
+    font-style: italic;
+    color: $secondary;
+    border: 1px solid $light-grey;
+    
+    
+    &:focus {
+        border-color: $primary;
+    }
+
+}
+
+@include atSmall {
+    .contact-form {
+        padding: 60px;
+    }
+}
+
+@include atLarge {
+    
+    input {
+        background: transparent;
+        border: 1px solid $primary;
+        padding: 10px 20px;
+        color: $primary;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all ease-in 0.3s;
+        width: auto;
+        border-radius: 50px 0 0 50px;
+    
+        &:focus {
+            background-color: $white;
+        }
+    
+        &:hover, :focus, :focus-within {
+            background: $white;
+        }
+    
+        &[type=submit] {
+            background-color: $primary;
+            color: $white;
+            border-top-left-radius: 0px;
+            border-bottom-left-radius: 0px;
+            border-top-right-radius: 50px;
+            border-bottom-right-radius: 50px;
+            padding: 11px 20px;
+            padding: 12px 30px;
+            font-weight: 700;
+            margin-left: -5px;
+            width: auto;
+    
+            &:hover {
+                background-color:  darken($primary, 10%);;
+            }
+        }
+    }
+
+    .contact-form {
+        height: 750px;
+        padding: 60px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: $white;
+        box-shadow: 0px 16px 25px rgba(0, 0, 0, 0.17);
+    
+        &-group {
+            display: grid;
+            width: 100%;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            
+        }
+    
+        &-input {
+            width: 100%;
+            margin: 10px 0;
+            border-radius: 0;
+            border-color: $light-grey;
+            color: $secondary;
+            font-size: 16px;
+            font-weight: 400;
+    
+            &:focus {
+                border-color: $primary;
+            }
+    
+            
+    
+            &::placeholder {
+                color: $secondary;
+                opacity: 1;
+                
+            }
+        }
+    }
+    
+    .form-title {
+        margin-top: -20px;
+    }
+    
+    #message {
+        
+        width: 100%;
+        height: 150px;
+        resize: none;
+        padding: 12px 20px;
+        font-style: italic;
+        color: $secondary;
+        border: 1px solid $light-grey;
+        
+        
+        &:focus {
+            border-color: $primary;
+        }
+    
+    }
+
+}

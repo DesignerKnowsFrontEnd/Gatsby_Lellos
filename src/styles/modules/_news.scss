@@ -1,0 +1,137 @@
+.our-news {
+    margin-top: 60px;
+
+    &-main-text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    &-title {
+        max-width: 460px;
+    }
+    
+
+    &-grid {
+        margin: 60px 0; 
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 30px;
+        
+      }
+
+    &-card {
+        background-color: $white;
+        border: 1px solid #EFEFEF;
+        transition: all ease-in 0.3s;
+        padding: 30px;
+
+        &:hover {
+            box-shadow: 0px 14px 25px rgba(0, 0, 0, 0.08);
+        }
+       
+        &-text {
+            
+
+            p {
+                line-height: 28px;
+            }
+        }
+
+       &-info {
+           display: flex;
+           justify-content: space-between;
+       }
+
+       .date {
+            color: $light-grey;
+            font-style: italic;
+            margin: 0;
+       }
+        
+        
+            
+        
+    }
+}
+
+
+
+
+// Targeting only the iPad Pro 12.9 inch for specific padding.
+@media only screen
+and (min-device-width: 1024px)
+and (max-device-width: 1024px) {
+
+    .recipes {
+    
+        &-grid {
+            padding: 130px;
+          }
+    }
+
+}
+
+@include atLarge {
+    .our-news {
+        margin-top: 160px;
+    
+        &-main-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+    
+        &-title {
+            max-width: 700px;
+        }
+        
+    
+        &-grid {
+            margin: 160px 0; 
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            
+          }
+    
+        &-card {
+            background-color: $white;
+            border: 1px solid #EFEFEF;
+            transition: all ease-in 0.3s;
+            padding: 30px;
+    
+            &:hover {
+                box-shadow: 0px 14px 25px rgba(0, 0, 0, 0.08);
+            }
+           
+            &-text {
+                
+    
+                p {
+                    line-height: 28px;
+                }
+            }
+    
+           &-info {
+               display: flex;
+               justify-content: space-between;
+           }
+    
+           .date {
+                color: $light-grey;
+                font-style: italic;
+                margin: 0;
+           }
+            
+            
+                
+            
+        }
+    }
+}
+

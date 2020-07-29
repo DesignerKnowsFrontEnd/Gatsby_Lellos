@@ -1,0 +1,80 @@
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    color: $secondary;
+    text-align: center;
+    vertical-align: middle;
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-radius: 100px;
+    padding: 8px 30px ;
+    font-size: $font-size;
+    line-height: 1.5;
+    transition: all ease-in 0.3s
+}
+
+.primary-btn {
+    background-color: $primary;
+    color: $secondary;
+
+    &:hover, :active {
+        background-color: darken($primary, 10%);
+    }
+}
+
+.btn-outlined {
+    border: 3px solid $primary;
+    color: $primary;
+
+    &:hover, :active {
+        background-color: $primary;
+        color: $secondary; 
+    }
+}
+
+.btn-outlined-secondary {
+    border: 3px solid $secondary;
+    color: $secondary;
+    width: 180px;
+
+    &:hover, :active {
+        background-color: $secondary;
+        color: $primary; 
+    }
+}
+
+.text-btn {
+    color: $primary;
+    font-weight: 700;
+    transition: all ease-in 0.3s;
+
+    &:hover {
+        color: darken($primary, 10%);
+    }
+}
+
+.btn-bttop {
+    background-color: $primary;
+    padding: 12px 20px;
+    border-radius: 0px;
+    transition: all ease-in 0.3s;
+    margin: 0 10px;
+
+    &:hover {
+        background-color: darken($primary, 10%);
+    }
+}
+
+
+@include atSmall {
+    .btn {
+        padding: 12px 42px ;
+    }
+
+    .btn-bttop {
+        padding: 12px 20px;
+    }
+}
+
+
+

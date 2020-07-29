@@ -1,0 +1,243 @@
+.menu {
+  margin-top: 60px;
+
+  &-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 40px;
+  }
+
+  &-cards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  &-cards-reversed {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  &-main-text {
+    grid-row: 1 / 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  &-main-text-reversed {
+    grid-row: 3 / 3;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  &-card {
+    width: 290px;
+    height: 350px;
+    margin: 0 0 30px 0;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid $lighter-grey;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all ease-in 0.3s;
+
+    &:hover {
+      box-shadow: 0px 14px 25px rgba(0, 0, 0, 0.08);
+    }
+  }
+}
+
+.half-circle {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: absolute;
+  background: url(../images/half-circle.png);
+  background-position: 0% 100%;
+  background-repeat: no-repeat;
+  display: inline-block;
+  height: 240px;
+  width: 100%;
+
+  &-title {
+    position: absolute;
+    bottom: 40px;
+    left: 0;
+    right: 0;
+    text-align: center;
+  }
+}
+
+.mt-30 {
+  margin-top: 0px;
+}
+
+.above-title-centered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.125em;
+  color: $primary;
+  font-family: $font-title;
+  font-weight: 700;
+  margin: 0 0 30px;
+
+  &::before {
+    content: '';
+    width: 60px;
+    height: 3px;
+    background-color: $primary;
+    margin-right: 10px;
+  }
+
+  &::after {
+    content: '';
+    width: 60px;
+    height: 3px;
+    background-color: $primary;
+    margin-left: 10px;
+  }
+}
+
+// Targeting only the iPad Pro 12.9 inch for specific padding.
+@media only screen and (min-device-width: 1024px) and (max-device-width: 1024px) {
+  .menu {
+    &-main-text {
+      margin: 0 auto;
+    }
+
+    &-main-text-reversed {
+      margin: 0 auto;
+    }
+  }
+}
+
+@include atLarge {
+  .menu {
+    margin-top: 160px;
+
+    &-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      row-gap: 90px;
+    }
+
+    &-cards {
+      grid-column: 1 / 8;
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: space-around;
+    }
+
+    &-cards-reversed {
+      grid-column: 6 / 13;
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: space-around;
+    }
+
+    &-main-text {
+      grid-column: 9 / 13;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+    }
+
+    &-main-text-reversed {
+      grid-column: 1 / 5;
+      grid-row: 2 / 2;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+    }
+
+    &-card {
+      width: 290px;
+      height: 350px;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid $lighter-grey;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: all ease-in 0.3s;
+
+      &:hover {
+        box-shadow: 0px 14px 25px rgba(0, 0, 0, 0.08);
+      }
+    }
+  }
+
+  .half-circle {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    background: url(../images/half-circle.png);
+    background-position: 0% 100%;
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 240px;
+    width: 100%;
+
+    &-title {
+      position: absolute;
+      bottom: 40px;
+      left: 0;
+      right: 0;
+      text-align: center;
+    }
+  }
+
+  .mt-30 {
+    margin-top: 30px;
+  }
+
+  .above-title-centered {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.125em;
+    color: $primary;
+    font-family: $font-title;
+    font-weight: 700;
+    margin: 0 0 30px;
+
+    &::before {
+      content: '';
+      width: 60px;
+      height: 3px;
+      background-color: $primary;
+      margin-right: 10px;
+    }
+
+    &::after {
+      content: '';
+      width: 60px;
+      height: 3px;
+      background-color: $primary;
+      margin-left: 10px;
+    }
+  }
+}
+
+@media only screen and (min-device-width: 1200px) and (max-device-width: 1390px) {
+  .menu {
+    &-card {
+      width: 217px;
+      height: 291px;
+    }
+  }
+}

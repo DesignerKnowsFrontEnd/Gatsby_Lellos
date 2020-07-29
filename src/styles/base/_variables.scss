@@ -1,0 +1,58 @@
+// Font Variables
+
+$font-title: 'Playfair Display', serif;
+$font-body: 'Open Sans', sans-serif;
+$font-size: 1em;
+
+// Color Variables
+
+$primary: #99aa51;
+$secondary: #282828;
+$white: #ffffff;
+$dark-grey: #959494;
+$light-grey: #c4c4c4;
+$lighter-grey: #ededed;
+
+// Wine Colors
+//white is already declared
+$red: #e07575;
+$rose: #f4c5c5;
+$sparkling: #f9f0c5;
+
+// Helper classes
+
+.max-width-720 {
+  max-width: 720px;
+}
+
+.mt-0 {
+  margin-top: 0 !important;
+}
+
+.mt-60 {
+  margin-top: 60px;
+}
+
+.mt-260 {
+  margin-top: 260px;
+}
+
+.mr-10 {
+  margin-right: 10px;
+}
+
+.mb-60 {
+  margin-bottom: 60px;
+}
+
+.object-fit-cover {
+  object-fit: cover;
+}
+
+.clearfix {
+  &:after {
+    content: '';
+    clear: both;
+    display: table;
+  }
+}

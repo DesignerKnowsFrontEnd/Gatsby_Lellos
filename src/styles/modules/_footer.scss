@@ -1,0 +1,338 @@
+.footer {
+    margin-top: 60px;
+    border-top: 10px solid $primary;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+
+    &-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 50px;
+        
+    }
+
+    &-logo {
+        width: 100px;
+        margin-bottom: 20px;
+    }
+}
+
+.col-1, .col-2, .col-3, .col-4, .col-5 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+
+
+
+.contact-info {
+    font-weight: 400;
+    font-style: italic;
+    color: $light-grey;
+    
+    p {
+        margin: 30px 0;
+    }
+
+    a {
+        color: $light-grey;
+        transition: all ease-in 0.3s;
+
+        &:hover {
+            color: $primary;
+        }
+    }
+
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    height: 210px;
+    list-style: none;
+    margin: 0;
+    padding: 15px 0;
+    
+}
+
+.footer-link a {
+    
+    text-align: center;
+    font-family: $font-title;
+    font-style: italic;
+    color: $light-grey;
+    transition: all ease-in 0.3s;
+    border-bottom: 2px solid transparent;
+
+    &:hover {
+        color: $primary;
+        border-bottom: 2px solid $primary;
+    }
+
+    &:focus {
+        color: $primary;
+        border-bottom: 2px solid $primary;
+    }
+}
+
+.menu-card-footer {
+    width: 225px;
+    height: 230px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid $lighter-grey;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all ease-in 0.3s;
+
+    &:hover {
+      box-shadow: 0px 14px 25px rgba(0, 0, 0, 0.08);
+    }
+}
+
+.above-title-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 1.125em;
+    color: $primary;
+    font-family: $font-title;
+    font-weight: 700;
+    margin: 10px 0;
+
+    &::before {
+        content: '';
+        width: 60px;
+        height: 3px;
+        background-color: $primary;
+        margin-right: 10px;
+    }
+    
+}
+
+.our-news-card-footer {
+    text-align: center;
+}
+
+.half-circle-footer {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    background: url(../images/half-circle.png);
+    background-position: 50% 120%;
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 240px;
+    width: 100%;
+  
+    &-title {
+      position: absolute;
+      bottom: 30px;
+      left: 0;
+      right: 0;
+      text-align: center;
+    }
+    
+  }
+
+  .copyright {
+      border-top: 1px solid $lighter-grey;
+      height: 100px;
+
+      &-flex {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          height: 100px;
+      }
+  }
+
+  @include atSmall {
+    .footer {
+        margin-top: 60px;
+        border-top: 10px solid $primary;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px 0;
+    
+        &-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 50px;
+            
+        }
+    }
+  }
+
+
+  @include atLarge {
+    .footer {
+        margin-top: 160px;
+        border-top: 10px solid $primary;
+        height: 510px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    
+        &-grid {
+            display: grid;
+            grid-template-columns: 160px 200px 100px 340px 225px;
+            gap: 50px;
+            
+        }
+    
+        &-logo {
+            width: 100px;
+            margin-bottom: 20px;
+        }
+    }
+    
+    .col-1, .col-2, .col-3, .col-4 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+    
+    
+    
+    .contact-info {
+        font-weight: 400;
+        font-style: italic;
+        color: $light-grey;
+        
+        p {
+            margin: 30px 0;
+        }
+    
+        a {
+            color: $light-grey;
+            transition: all ease-in 0.3s;
+    
+            &:hover {
+                color: $primary;
+            }
+        }
+    
+    }
+    
+    .footer-links {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        height: 210px;
+        list-style: none;
+        margin: 0;
+        padding: 15px 0;
+        
+    }
+    
+    .footer-link a {
+        
+        text-align: center;
+        font-family: $font-title;
+        font-style: italic;
+        color: $light-grey;
+        transition: all ease-in 0.3s;
+        border-bottom: 2px solid transparent;
+    
+        &:hover {
+            color: $primary;
+            border-bottom: 2px solid $primary;
+        }
+    
+        &:focus {
+            color: $primary;
+            border-bottom: 2px solid $primary;
+        }
+    }
+    
+    .menu-card-footer {
+        width: 225px;
+        height: 230px;
+        position: relative;
+        overflow: hidden;
+        border: 1px solid $lighter-grey;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: all ease-in 0.3s;
+    
+        &:hover {
+          box-shadow: 0px 14px 25px rgba(0, 0, 0, 0.08);
+        }
+    }
+    
+    .our-news-card-footer {
+        text-align: left;
+    }
+
+    .above-title-footer {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        font-size: 1.125em;
+        color: $primary;
+        font-family: $font-title;
+        font-weight: 700;
+        margin: 10px 0;
+    
+        &::before {
+            content: '';
+            width: 60px;
+            height: 3px;
+            background-color: $primary;
+            margin-right: 10px;
+        }
+        
+    }
+    
+    .half-circle-footer {
+        bottom: 0;
+        left: 0;
+        right: 0;
+        position: absolute;
+        background: url(../images/half-circle.png);
+        background-position: 50% 120%;
+        background-repeat: no-repeat;
+        display: inline-block;
+        height: 240px;
+        width: 100%;
+      
+        &-title {
+          position: absolute;
+          bottom: 30px;
+          left: 0;
+          right: 0;
+          text-align: center;
+        }
+        
+      }
+    
+      .copyright {
+          border-top: 1px solid $lighter-grey;
+          height: 100px;
+    
+          &-flex {
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              height: 100px;
+          }
+      }
+  }

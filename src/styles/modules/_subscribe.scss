@@ -1,0 +1,93 @@
+.subscribe {
+    margin-top: 60px;
+
+    &-grid {
+        display: block;
+    }
+
+    &-card {
+        background-image: url(../images/subscribe-bg.png);
+        background-position: 30% 0%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 400px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        padding: 20px;
+        
+    }
+
+    // h3 {
+    //     font-size: 1.8em;
+    // }
+   
+
+    &-form {
+        margin-top: 30px;
+    }
+}
+
+@include atSmall {
+
+    .subscribe {
+
+        &-grid {
+            display: block;
+        }
+    
+        &-card {
+            background-position: 40% 0%;
+            height: 400px;
+            align-items: flex-start;
+            justify-content: center;
+            width: 100%;
+            padding: 20px;
+            
+        }
+
+        h3 {
+            max-width: 450px;
+        }
+    }
+
+}
+
+@include atLarge {
+
+    .subscribe {
+        margin-top: 160px;
+    
+        &-grid {
+            display: grid;
+            grid-template-columns: repeat(10, 1fr);
+            
+        }
+    
+        &-card {
+            background-image: url(../images/subscribe-bg.png);
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            grid-column: 2 / 10;
+            height: 380px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            padding: 0 75px;
+        }
+    
+        h3 {
+            max-width: 430px;
+        }
+    
+        &-form {
+            width: 500px;
+            margin-top: 20px;
+        }
+    }
+
+}

@@ -1,0 +1,151 @@
+// Breakpoint Variables
+$S: 530px;
+$M: 768px;
+$L: 1200px;
+$XL: 1440px;
+
+
+
+// Breakpoint Mixins
+@mixin atSmall {
+    @media (min-width: $S) {
+        @content;
+    }
+}
+
+@mixin atMedium {
+    @media (min-width: $M) {
+        @content;
+    }
+}
+
+@mixin atLarge {
+    @media (min-width: $L) {
+        @content;
+    }
+}
+
+@mixin atExtraLarge {
+    @media (min-width: $XL) {
+        @content;
+    }
+}
+
+@mixin atMobileMenu {
+    @media (min-width: 926px ) {
+        @content;
+    }
+}
+
+
+@mixin RectangleDropShadow {
+
+    content: '';
+    background-image: url(../images/rectangles-bg.png);
+    background-position: 0% 50%;
+    background-repeat: no-repeat;
+    display: inline-block;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    bottom: -10px;
+    left: -10px;
+    z-index: -1;
+
+    @include atSmall {
+        bottom: -20px;
+        left: -20px;
+    }
+
+    @media only screen
+    and (min-device-width: 1024px)
+    and (max-device-width: 1024px) {
+        background-position: 0% 0%;
+        background-repeat: round;
+    }
+
+    
+    @include atLarge {
+        background-position: 0% 50%;
+        background-repeat: no-repeat;
+        bottom: -20px;
+        left: -20px;
+    }
+    
+}
+
+@mixin RectangleDropShadowAlt {
+
+    content: '';
+    background-image: url(../images/rectangles-bg.png);
+    background-position: 0% 50%;
+    background-repeat: no-repeat;
+    display: inline-block;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    bottom: -10px;
+    left: -10px;
+    z-index: -1;
+
+    @include atSmall {
+        bottom: -20px;
+        left: -20px;
+    }
+
+    @media only screen
+    and (min-device-width: 1024px)
+    and (max-device-width: 1024px) {
+        background-position: 0% 0%;
+        background-repeat: round;
+    }
+
+    
+    @include atLarge {
+        background-position: 0% 50%;
+        background-repeat: no-repeat;
+        bottom: -60px;
+        left: -20px;
+    }
+    
+}
+
+@mixin RectangleDropShadowAlt2 {
+
+    content: '';
+    background-image: url(../images/rectangles-bg.png);
+    background-position: 0% 50%;
+    background-repeat: no-repeat;
+    display: inline-block;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    bottom: -10px;
+    left: -10px;
+    z-index: -1;
+
+    @include atSmall {
+        bottom: -20px;
+        left: -20px;
+    }
+
+    @media only screen
+    and (min-device-width: 1024px)
+    and (max-device-width: 1024px) {
+        background-position: 0% 0%;
+        background-repeat: round;
+    }
+
+    
+    @include atLarge {
+        background-position: 0% 50%;
+        background-repeat: no-repeat;
+        bottom: -60px;
+        left: 140px;
+    
+    }
+    
+}
+
+
+

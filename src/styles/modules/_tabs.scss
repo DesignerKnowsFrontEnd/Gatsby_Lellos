@@ -1,0 +1,362 @@
+.tabs {
+
+  &-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 90px;
+    width: 100%;
+    border-bottom: 3px solid $lighter-grey;
+  }
+
+  &-scroll {
+    
+    white-space: nowrap;
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    overflow-y: hidden;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+  } 
+
+  &-sticky {
+    position: fixed;
+    top: 79px;
+    width: 100%;
+    z-index: 999;
+    background-color: $white;
+    border-top: 10px solid $primary;
+    //transition: all ease-in 0.3s;
+  }
+  
+  &-li {
+    padding: 15px;
+  }
+
+  &-btn {
+    font-family: $font-title;
+    color: $secondary;
+    font-size: 1em;
+    font-weight: 400;
+    transition: all ease-in 0.3s;
+    padding-bottom: 33px;
+    padding-left: 5px;
+
+    &:hover {
+      color: $primary;
+    }
+
+    &:focus {
+      color: $primary;
+    }
+  }
+ 
+
+  &-title {
+    margin: 60px 0;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+  }
+
+  &-food-cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    column-gap: 160px;
+    row-gap: 90px;
+    
+  }
+
+  &-food-card {
+    padding: 20px;
+    border-bottom: 2px dashed $lighter-grey;
+  }
+
+  &-food-title {
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+
+    h5 {
+      color: $primary;
+    }
+
+    p {
+      margin: 5px 0;
+      font-size: 1.25em;
+    }
+  }
+
+  &-food-description {
+    
+    p {
+      line-height: 30px;
+    }
+  }
+
+  &-wine-card {
+    padding: 20px;
+    border-bottom: 2px dashed $lighter-grey;
+  }
+
+  &-wine-title {
+      color: $primary;
+  }
+
+  &-wine-description {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: center;
+    height: auto;
+  }
+
+  &-wine-prices {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+
+  &-wine-volume {
+    position: relative;
+    &:after {
+      content: '';
+      position: absolute;
+      width: 270%;
+      height: 2px;
+      border-bottom: 2px dashed $lighter-grey;
+      padding: 7px 0;
+      margin: 0 10px;
+    }
+  }
+}
+
+
+.tabs-sticky + .container {
+  padding-top: 160px;
+}
+
+.wine-icon {
+  position: relative;
+  margin: 20px 0;
+  font-weight: 700;
+  padding-left: 50px;
+  
+  &:before {
+    content: '';
+    padding: 24px;
+    border-radius: 50px;
+    border: 1px solid $lighter-grey;
+    background-image: url(../images/icons/wine-glass.svg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: absolute;
+    left: -10px;
+    top: -16px;
+  }
+}  
+
+.white-wine::before {
+  background-color: $white;
+}
+
+.red-wine::before {
+  background-color: $red;
+}
+
+.rose-wine::before {
+  background-color: $rose;
+}
+
+.sparkling-wine::before {
+  background-color: $sparkling;
+}
+
+@include atSmall {
+  .tabs {
+    &-wine-volume {
+      position: relative;
+      &:after {
+        width: 1140%;
+        
+      }
+    }
+  }
+}
+
+// Targeting only the iPad Pro 12.9 inch for specific padding.
+@media only screen
+and (min-device-width: 1024px)
+and (max-device-width: 1024px) {
+  .tabs {
+    &-wine-volume {
+      position: relative;
+      &:after {
+        width: 1690%;
+        
+      }
+    }
+  }
+}
+
+@include atLarge {
+
+  .tabs {
+
+    &-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 90px;
+      width: 100%;
+      border-bottom: 3px solid $lighter-grey;
+    }
+    
+    &-sticky {
+      position: fixed;
+      top: 92px;
+      width: 100%;
+      z-index: 999;
+      background-color: $white;
+      border-top: 10px solid $primary;
+      //transition: all ease-in 0.3s;
+    }
+
+    &-li {
+      padding: 15px;
+    }
+  
+    &-btn {
+      font-family: $font-title;
+      color: $secondary;
+      font-size: 1em;
+      font-weight: 400;
+      transition: all ease-in 0.3s;
+      border-bottom: 3px solid transparent;
+      padding-bottom: 33px;
+      padding-left: 5px;
+  
+      &:hover {
+        color: $primary;
+        border-bottom: 3px solid $primary;
+      }
+  
+      &:focus {
+        color: $primary;
+        border-bottom: 3px solid $primary;
+      }
+    }
+   
+  
+    &-title {
+      margin: 160px 0;
+      display: flex;
+      justify-content: center;
+      align-content: center;
+    }
+  
+    &-food-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 160px;
+      row-gap: 90px;
+      
+    }
+  
+    &-food-card {
+      padding: 20px;
+      border-bottom: 2px dashed $lighter-grey;
+    }
+  
+    &-food-title {
+      display: flex;
+      align-content: center;
+      justify-content: space-between;
+  
+      h5 {
+        color: $primary;
+      }
+  
+      p {
+        margin: 5px 0;
+        font-size: 1.25em;
+      }
+    }
+  
+    &-food-description {
+      
+      p {
+        line-height: 30px;
+      }
+    }
+
+    &-wine-card {
+      padding: 20px;
+      border-bottom: 2px dashed $lighter-grey;
+    }
+
+    &-wine-title {
+        color: $primary;
+    }
+
+    &-wine-description {
+      display: flex;
+      justify-content: space-between;
+      align-content: center;
+      height: auto;
+    }
+
+    &-wine-prices {
+      display: flex;
+      justify-content: space-between;
+    }
+    
+
+    &-wine-volume {
+      position: relative;
+      &:after {
+        content: '';
+        position: absolute;
+        width: 960%;
+        height: 2px;
+        border-bottom: 2px dashed $lighter-grey;
+        padding: 7px 0;
+        margin: 0 10px;
+      }
+    }
+  }
+
+  .tabs-sticky + .container {
+    padding-top: 160px;
+  }
+
+  .wine-icon {
+    position: relative;
+    margin: 20px 0;
+    font-weight: 700;
+    
+    &:before {
+      content: '';
+      padding: 24px;
+      border-radius: 50px;
+      border: 1px solid $lighter-grey;
+      background-image: url(../images/icons/wine-glass.svg);
+      background-position: center center;
+      background-repeat: no-repeat;
+      position: absolute;
+      left: -60px;
+      top: -16px;
+    }
+  }  
+}

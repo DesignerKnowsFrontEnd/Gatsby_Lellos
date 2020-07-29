@@ -1,0 +1,396 @@
+.reviews {
+    // background-color: $lighter-grey;
+    margin-top: 60px;
+    padding: 60px 0;
+
+    
+
+    // &-title {
+    //     font-size: 2.2em; 
+    // }
+
+
+    &-main-text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    &-card {
+        background-color: $white;
+        display: flex !important;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0 10px;
+        transition: all ease-in 0.3s;
+        padding: 30px;
+        text-align: center;
+       
+
+        &-thumbnail {
+            width: 100px;
+            height: 100px;
+            background-image: url(../images/review-1.png);
+            background-position: center center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            border-radius: 50px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            max-width: 395px;
+            text-align: center;
+            line-height: 35px;
+            margin: 20px 0;
+        }
+    }
+}
+
+.reviewer {
+    font-family: $font-title;
+    font-size: 1em;
+    font-weight: 700;
+    color: $secondary;
+
+    &:before {
+        content: '~';
+        margin-right: 5px;
+        color: $primary;
+    }
+
+    &:after {
+        content: '~';
+        margin-left: 5px;
+        color: $primary;
+    }
+}
+
+div.slick-current + div.slick-active {
+    background-color: $white;
+    height: 460px;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: all ease-in 0.3s;
+
+}
+
+.slick-dots li {
+    position: relative;
+    display: inline-block;
+    width: 30px;
+    height: 3px;
+    padding: 0;
+    cursor: pointer;
+
+}
+
+
+.slick-dots li button {
+    font-size: 0;
+    line-height: 0;
+    display: block;
+    width: 60px;
+    height: 3px;
+    padding: 0 18px;
+    cursor: pointer;
+    color: transparent;
+    border: 0;
+    outline: none;
+    background: transparent;
+   
+   
+    &:before {
+        height: 3px;
+        width: 30px;
+        font-family: none;
+        font-size: none;
+        line-height: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: ' ';
+        text-align: center;
+        background-color: $light-grey;
+        transition: all ease-in 0.3s;
+
+    }
+}
+
+
+.slick-dots li.slick-active button {
+    
+
+    &:before {
+        background-color: $primary;
+        width: 30px;
+        margin: 0 5px;
+    }
+
+}
+
+.slick-track {
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
+
+
+.slick-prev, .slick-next {
+    font-size: 0px;
+    line-height: 0;
+    position: absolute;
+    top: 53%;
+    display: block;
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    transition: all ease-in 0.3s;
+    transform: translate(0, -50%);
+    cursor: pointer;
+    color: $primary;
+    border: 2px solid $primary;
+    border-radius: 50px;
+    outline: none;
+    background: transparent;
+
+    &:hover {
+        background-color: $primary;
+        color: $secondary;
+        
+    }
+
+    &:before {
+        content: ' ';
+        font-family: $font-body;
+        font-size: 16px;
+        line-height: 1;
+        opacity: .75;
+        color: $secondary;
+    }
+}
+
+.arrows svg {
+    font-size: 16px;
+}
+
+@include atSmall {
+
+    .reviews {
+
+        &-title {
+            max-width: 460px;
+        }
+    }
+
+    .reviews-card {
+        height: 100%;
+    }
+
+    .slick-next {
+        margin-right: -30px;
+    }
+
+    .slick-prev {
+        margin-left: -30px;
+    }
+
+}
+
+@include atLarge {
+
+    .reviews {
+        // background-color: $lighter-grey;
+        margin-top: 160px;
+        padding: 160px 0;
+    
+        &-carousel {
+            height: 700px;
+        }
+    
+        &-title {
+            font-size: 3em;
+            max-width: 720px; 
+        }
+    
+        &-main-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+    
+        &-card {
+            background-color: $white;
+            height: 570px;
+            display: flex !important;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 30px 40px;
+            transition: all ease-in 0.3s;
+           
+    
+            &-thumbnail {
+                width: 100px;
+                height: 100px;
+                background-image: url(../images/review-1.png);
+                background-position: center center;
+                background-size: cover;
+                background-repeat: no-repeat;
+                border-radius: 50px;
+                margin-bottom: 20px;
+            }
+    
+            p {
+                max-width: 395px;
+                text-align: center;
+                line-height: 35px;
+                margin: 20px 0;
+            }
+        }
+    }
+    
+    div.slick-current + div.slick-active {
+        background-color: $white;
+        height: 660px;
+        display: flex !important;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: all ease-in 0.3s;
+    
+    }
+
+    .slick-dots {
+        bottom: -135px;
+    }
+    
+    .slick-dots li {
+        position: relative;
+        display: inline-block;
+        width: 30px;
+        height: 3px;
+        padding: 0;
+        cursor: pointer;
+    
+    }
+    
+    
+    .slick-dots li button {
+        font-size: 0;
+        line-height: 0;
+        display: block;
+        width: 60px;
+        height: 3px;
+        padding: 0 18px;
+        cursor: pointer;
+        color: transparent;
+        border: 0;
+        outline: none;
+        background: transparent;
+       
+       
+        &:before {
+            height: 3px;
+            width: 30px;
+            font-family: none;
+            font-size: none;
+            line-height: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            content: ' ';
+            text-align: center;
+            background-color: $light-grey;
+            transition: all ease-in 0.3s;
+    
+        }
+    }
+    
+    
+    .slick-dots li.slick-active button {
+        
+    
+        &:before {
+            background-color: $primary;
+            width: 30px;
+            margin: 0 5px;
+            
+        }
+    
+    }
+    
+    .slick-track {
+        margin-top: 120px;
+        margin-bottom: 80px;
+    }
+
+    
+    .slick-prev, .slick-next {
+        font-size: 0px;
+        line-height: 0;
+        position: absolute;
+        top: 53%;
+        display: block;
+        width: 42px;
+        height: 42px;
+        padding: 0;
+        transition: all ease-in 0.3s;
+        transform: translate(0, -50%);
+        cursor: pointer;
+        color: $primary;
+        border: 2px solid $primary;
+        border-radius: 50px;
+        outline: none;
+        background: transparent;
+    
+        &:hover {
+            background-color: $primary;
+            color: $secondary;
+            
+        }
+    
+        &:before {
+            content: ' ';
+            font-family: $font-body;
+            font-size: 16px;
+            line-height: 1;
+            opacity: .75;
+            color: $secondary;
+        }
+    }
+    
+    .arrows i {
+        font-size: 16px;
+    }
+
+}
+
+@include atExtraLarge {
+
+    .reviews {
+    
+        &-card {
+            height: 100%;
+           
+        }
+
+    }
+
+    div.slick-current + div.slick-active {
+        height: 460px;
+    
+    }
+
+    .slick-dots {
+        bottom: 0;
+    }
+
+}

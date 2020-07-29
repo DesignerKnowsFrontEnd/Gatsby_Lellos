@@ -1,0 +1,29 @@
+// Vendor Css Styles
+@import 'vendor/slickfix';
+@import '../../node_modules/slick-carousel/slick/slick.scss';
+@import '../../node_modules/slick-carousel/slick/slick-theme.scss';
+@import "../../node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss";
+
+//App CSS
+@import 'base/normalize';
+@import 'base/variables';
+@import 'base/mixins';
+@import 'base/global';
+@import 'base/button';
+@import 'base/forms';
+@import 'modules/navbar';
+@import 'modules/sub-nav';
+@import 'modules/tabs';
+@import 'modules/hero';
+@import 'modules/percentage-card';
+@import 'modules/about-us';
+@import 'modules/chef';
+@import 'modules/menu';
+@import 'modules/reviews';
+@import 'modules/news';
+@import 'modules/subscribe';
+@import 'modules/footer';
+@import 'modules/breadcrumbs';
+@import 'pages/about';
+@import 'pages/contact';
+@import 'pages/news';
