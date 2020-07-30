@@ -3,37 +3,33 @@ import { useStaticQuery, graphql, Link } from 'gatsby';
 
 const Hero = () => {
   const data = useStaticQuery(graphql`
-    {
-      wordpress {
-        pageBy(uri: "/") {
-          id
-          uri
+    fragment HeroSection on WpPage_Homepagesections {
+      heroSection {
+        aboveTitle
+        title
+        paragraphText
+        button {
+          target
           title
-          HomePageSections {
-            heroSection {
-              aboveTitle
-              title
-              paragraphText
-              button {
-                url
-                title
-                target
-              }
-              backgroundImage {
+          url
+        }
+        backgroundImage {
+          altText
+          localFile {
+            childImageSharp {
+              fluid {
                 srcSet
-                sourceUrl
-                altText
               }
-              facebookLink
-              instagramLink
-              tripAdvisorLink
             }
           }
         }
+        facebookLink
+        instagramLink
+        tripAdvisorLink
       }
     }
   `);
-  const content = data.wordpress.pageBy.HomePageSections;
+  const content = data.allWpPage.nodes.HomePageSections;
   return (
     <section
       className='hero'

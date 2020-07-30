@@ -5,36 +5,40 @@ import DrinksMenu from '../components/Menus/drinksMenu';
 import Subscribe from '../components/subscribe';
 
 export const query = graphql`
-  {
-    wordpress {
-      cpt_drinks_menu(where: { orderby: { field: MENU_ORDER, order: ASC } }) {
-        nodes {
-          uri
-          title
-          slug
-          drinks_items_fields {
-            drinksCategory {
-              drinksItemDescription
-              drinksItemTitle
-              drinksWineClass
-              oneHundredTwentyFiveMlDrinksItemPrice
-              oneSeventyFiveMlDrinksItemPrice
-              twoFiftyMlDrinksItemPrice
-            }
-          }
-        }
-      }
-      pageBy(uri: "/our-drinks") {
-        content
+  query drinksMenu($menuOrder: IntQueryOperatorInput = {}) {
+    allWpPage(filter: { uri: { eq: "/our-drinks/" } }) {
+      nodes {
         title
         uri
+      }
+    }
+    allWpCptDrinkMenu(
+      sort: { fields: menuOrder }
+      filter: { menuOrder: $menuOrder }
+    ) {
+      nodes {
+        title
+        uri
+        menuOrder
+        slug
+        drinks_items_fields {
+          drinksCategory {
+            drinksItemTitle
+            drinksItemDescription
+            drinksItemPrice
+            drinksWineClass
+            twoFiftyMlDrinksItemPrice
+            oneSeventyFiveMlDrinksItemPrice
+            oneHundredTwentyFiveMlDrinksItemPrice
+          }
+        }
       }
     }
   }
 `;
 
 const OurDrinks = ({ data }) => {
-  const content = data.wordpress.pageBy;
+  const content = data.allWpPage.nodes[0];
   //console.log(data.wordpress.cpt_food_menu_items.nodes)
   return (
     <Layout>
@@ -51,7 +55,7 @@ const OurDrinks = ({ data }) => {
       <div className='tabs'>
         <DrinksMenu></DrinksMenu>
         <div className='container'>
-          {data.wordpress.cpt_drinks_menu.nodes.map((node) => (
+          {data.allWpCptDrinkMenu.nodes.map((node) => (
             <div className='tabs-content'>
               <div className='tabs-title'>
                 <h2>{node.title}</h2>

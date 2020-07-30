@@ -29,18 +29,22 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-source-graphql",
+      resolve: 'gatsby-source-wordpress-experimental',
       options: {
-        // Arbitrary name for the remote schema Query type
-        typeName: "WORDPRESS",
-        // Field under which the remote schema will be accessible. You'll use this in your Gatsby query
-        fieldName: "wordpress",
         // Url to query from
-        url: "http://gatsbylellostest.local/graphql",
+        url: 'http://gatsbylellostest.local/graphql',
+      },
+      graphql: {
+        showQueryOnError: false,
+        showQueryVarsOnError: true,
+        copyQueryOnError: false,
+        panicOnError: true,
+        // a critical error is a WPGraphQL query that returns an error and no response data. Currently WPGQL will error if we try to access private posts so if this is false it returns a lot of irrelevant errors.
+        onlyReportCriticalErrors: true,
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
   ],
-}
+};

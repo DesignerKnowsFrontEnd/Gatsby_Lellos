@@ -3,9 +3,9 @@ import Layout from '../components/layout';
 import Subscribe from '../components/subscribe';
 
 export const query = graphql`
-  {
-    wordpress {
-      pageBy(uri: "/about") {
+  query AboutPage {
+    allWpPage(filter: { uri: { eq: "/about/" } }) {
+      nodes {
         title
         uri
         AboutUsFields {
@@ -37,7 +37,8 @@ export const query = graphql`
 `;
 
 const AboutPage = ({ data }) => {
-  const content = data.wordpress.pageBy;
+  const content = data.allWpPage.nodes[0];
+  console.log(content);
 
   return (
     <Layout>
