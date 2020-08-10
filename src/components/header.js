@@ -2,29 +2,31 @@ import { Link, useStaticQuery, graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 import React from 'react';
 import MainMenu from './Menus/mainMenu';
-import Img from 'gatsby-image';
 
 const Header = () => {
   const data = useStaticQuery(graphql`
-    query {
-      placeholderImage: file(relativePath: { eq: "logo.png" }) {
-        childImageSharp {
-          fixed(width: 65, height: 65) {
-            ...GatsbyImageSharpFixed
+    query HeaderLogoQuery {
+      allWpCptWebsiteSetting {
+        nodes {
+          websiteSettingsFields {
+            siteLogo {
+              altText
+              title
+              uri
+              sourceUrl
+            }
           }
         }
       }
     }
   `);
+  const logo = data.allWpCptWebsiteSetting.nodes[0].websiteSettingsFields;
   return (
     <nav id='navigation' className='navigation'>
       <div className='container-xl'>
         <div className='navbar'>
           <Link className='navbar-logo' to='/'>
-            <Img
-              fixed={data.placeholderImage.childImageSharp.fixed}
-              alt='Lellos Logo'
-            />
+            <img src={logo.siteLogo.sourceUrl} alt={logo.siteLogo.altText} />
           </Link>
           <MainMenu />
           <div className='toggle'>

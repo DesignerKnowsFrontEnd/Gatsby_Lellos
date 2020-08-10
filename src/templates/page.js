@@ -13,7 +13,7 @@ export const query = graphql`
 `;
 
 const PageTemplate = ({ data }) => {
-  const page = data.wordpress.page;
+  const page = data.wpPage;
   return (
     <>
       <Layout>

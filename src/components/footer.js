@@ -3,16 +3,23 @@ import { useStaticQuery, graphql } from 'gatsby';
 
 const Footer = () => {
   const data = useStaticQuery(graphql`
-    query {
-      placeholderImage: file(relativePath: { eq: "logo.png" }) {
-        childImageSharp {
-          fixed(width: 65, height: 65) {
-            ...GatsbyImageSharpFixed
+    query LogoQuery {
+      allWpCptWebsiteSetting {
+        nodes {
+          websiteSettingsFields {
+            siteLogo {
+              altText
+              title
+              uri
+              sourceUrl
+            }
           }
         }
       }
     }
   `);
+  const logo = data.allWpCptWebsiteSetting.nodes[0].websiteSettingsFields;
+  console.log(logo);
   return (
     <>
       <footer className='footer'>
@@ -22,12 +29,8 @@ const Footer = () => {
               <div className='footer-logo'>
                 <a href='index.html'>
                   <img
-                    srcSet={
-                      content.heroSection.backgroundImage.localFile
-                        .childImageSharp.fluid.srcSet
-                    }
-                    className='bg-image'
-                    alt={content.heroSection.backgroundImage.altText}
+                    src={logo.siteLogo.sourceUrl}
+                    alt={logo.siteLogo.altText}
                   />
                 </a>
               </div>

@@ -9,12 +9,13 @@ export const query = graphql`
       title
       date
       id
+      content
     }
   }
 `;
 
 const PostTemplate = ({ data }) => {
-  const post = data.wordpress.post;
+  const post = data.wpPost;
   console.log(data);
   return (
     <>
