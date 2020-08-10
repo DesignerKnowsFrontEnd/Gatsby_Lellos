@@ -3,22 +3,31 @@ import { useStaticQuery, graphql, Link } from 'gatsby';
 
 const About = () => {
   const data = useStaticQuery(graphql`
-    fragment AboutSection on WpPage_Homepagesections {
-      aboutSection {
-        aboveTitle
-        title
-        paragraphtext
-        button {
-          target
+    {
+      allWpPage(filter: { uri: { eq: "/" } }) {
+        nodes {
           title
-          url
-        }
-        image {
-          altText
-          localFile {
-            childImageSharp {
-              fluid {
-                srcSet
+          uri
+          id
+          HomePageSections {
+            aboutSection {
+              aboveTitle
+              title
+              paragraphtext
+              button {
+                target
+                title
+                url
+              }
+              image {
+                altText
+                localFile {
+                  childImageSharp {
+                    fluid {
+                      srcSet
+                    }
+                  }
+                }
               }
             }
           }
@@ -26,7 +35,8 @@ const About = () => {
       }
     }
   `);
-  const content = data.allWpPage.nodes.HomePageSections;
+  const content = data.allWpPage.nodes[0].HomePageSections;
+
   return (
     <section className='about-us'>
       <div className='container'>
@@ -34,7 +44,10 @@ const About = () => {
           <div className='about-us-content'>
             <div className='about-us-content-image'>
               <img
-                src={content.aboutSection.image.sourceUrl}
+                srcSet={
+                  content.aboutSection.image.localFile.childImageSharp.fluid
+                    .srcSet
+                }
                 alt={content.aboutSection.image.altText}
               />
             </div>

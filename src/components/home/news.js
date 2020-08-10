@@ -9,7 +9,8 @@ const News = ({ props }) => {
           id
           title
           uri
-          date
+          date(formatString: "DD/MM/YYYY")
+          excerpt
           categories {
             nodes {
               name
@@ -17,21 +18,28 @@ const News = ({ props }) => {
           }
         }
       }
-    }
-    fragment NewsSection on WpPage_Homepagesections {
-      newsSection {
-        aboveTitle
-        title
-        button {
-          target
+      allWpPage(filter: { uri: { eq: "/" } }) {
+        nodes {
           title
-          url
+          uri
+          id
+          HomePageSections {
+            newsSection {
+              aboveTitle
+              title
+              button {
+                target
+                title
+                url
+              }
+            }
+          }
         }
       }
     }
   `);
   const posts = data.allWpPost.nodes;
-  const content = props.data.allWpPage.nodes.HomePageSections;
+  const content = data.allWpPage.nodes[0].HomePageSections;
   return (
     <section className='our-news'>
       <div className='container'>

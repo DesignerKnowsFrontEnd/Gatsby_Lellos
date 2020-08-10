@@ -37,7 +37,7 @@ exports.createPages = async ({ graphql, actions }) => {
   }
 
   // Access query results via object destructuring
-  const pages = result.data.wordpress.pages.nodes;
+  const pages = result.data.allWpPage.nodes;
 
   const pageTemplate = path.resolve(`./src/templates/page.js`);
   // We want to create a detailed page for each post node.
@@ -55,7 +55,7 @@ exports.createPages = async ({ graphql, actions }) => {
   });
 
   // Access query results via object destructuring
-  const posts = result.data.wordpress.posts.nodes;
+  const posts = result.data.allWpPost.nodes;
 
   const postTemplate = path.resolve(`./src/templates/post.js`);
   // We want to create a detailed page for each post node.

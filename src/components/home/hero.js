@@ -3,33 +3,43 @@ import { useStaticQuery, graphql, Link } from 'gatsby';
 
 const Hero = () => {
   const data = useStaticQuery(graphql`
-    fragment HeroSection on WpPage_Homepagesections {
-      heroSection {
-        aboveTitle
-        title
-        paragraphText
-        button {
-          target
+    {
+      allWpPage(filter: { uri: { eq: "/" } }) {
+        nodes {
           title
-          url
-        }
-        backgroundImage {
-          altText
-          localFile {
-            childImageSharp {
-              fluid {
-                srcSet
+          uri
+          id
+          HomePageSections {
+            heroSection {
+              aboveTitle
+              title
+              paragraphText
+              button {
+                target
+                title
+                url
               }
+              backgroundImage {
+                altText
+                localFile {
+                  childImageSharp {
+                    fluid {
+                      srcSet
+                    }
+                  }
+                }
+              }
+              facebookLink
+              instagramLink
+              tripAdvisorLink
             }
           }
         }
-        facebookLink
-        instagramLink
-        tripAdvisorLink
       }
     }
   `);
-  const content = data.allWpPage.nodes.HomePageSections;
+  const content = data.allWpPage.nodes[0].HomePageSections;
+  console.log();
   return (
     <section
       className='hero'
@@ -38,7 +48,10 @@ const Hero = () => {
       // }}
     >
       <img
-        srcSet={content.heroSection.backgroundImage.srcSet}
+        srcSet={
+          content.heroSection.backgroundImage.localFile.childImageSharp.fluid
+            .srcSet
+        }
         className='bg-image'
         alt={content.heroSection.backgroundImage.altText}
       />

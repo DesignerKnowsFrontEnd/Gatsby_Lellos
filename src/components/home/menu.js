@@ -3,62 +3,71 @@ import { useStaticQuery, graphql, Link } from 'gatsby';
 
 const Menu = () => {
   const data = useStaticQuery(graphql`
-    fragment MenuSection on WpPage_Homepagesections {
-      menuSection {
-        ourFoodMenuItems {
-          menuItemBackgroundImage {
-            localFile {
-              childImageSharp {
-                fluid {
-                  srcSet
+    {
+      allWpPage(filter: { uri: { eq: "/" } }) {
+        nodes {
+          title
+          uri
+          id
+          HomePageSections {
+            menuSection {
+              ourFoodMenuItems {
+                menuItemBackgroundImage {
+                  localFile {
+                    childImageSharp {
+                      fluid {
+                        srcSet
+                      }
+                    }
+                  }
                 }
+                menuItemLink {
+                  target
+                  title
+                  url
+                }
+                menuItemTitle
+              }
+              ourFoodAboveTitle
+              ourFoodTitle
+              ourFoodParagraphText
+              ourFoodButton {
+                target
+                title
+                url
+              }
+              ourDrinksMenuItems {
+                menuItemBackgroundImage {
+                  localFile {
+                    childImageSharp {
+                      fluid {
+                        srcSet
+                      }
+                    }
+                  }
+                }
+                menuItemLink {
+                  target
+                  title
+                  url
+                }
+                menuItemTitle
+              }
+              ourDrinksAboveTitle
+              ourDrinksTitle
+              ourDrinksParagraphText
+              ourDrinksButton {
+                target
+                title
+                url
               }
             }
           }
-          menuItemLink {
-            target
-            title
-            url
-          }
-          menuItemTitle
-        }
-        ourFoodAboveTitle
-        ourFoodTitle
-        ourFoodParagraphText
-        ourFoodButton {
-          target
-          title
-          url
-        }
-        ourDrinksMenuItems {
-          menuItemBackgroundImage {
-            localFile {
-              childImageSharp {
-                fluid {
-                  srcSet
-                }
-              }
-            }
-          }
-          menuItemLink {
-            target
-            title
-            url
-          }
-          menuItemTitle
-        }
-        ourDrinksAboveTitle
-        ourDrinksTitle
-        ourDrinksParagraphText
-        ourDrinksButton {
-          target
-          title
-          url
         }
       }
     }
   `);
-  const content = data.allWpPage.nodes.HomePageSections;
+  const content = data.allWpPage.nodes[0].HomePageSections;
   return (
     <section className='menu'>
       <div className='container-xl'>
@@ -68,7 +77,10 @@ const Menu = () => {
               <Link to={ourFoodMenuItem.menuItemLink.url}>
                 <div className='menu-card '>
                   <img
-                    src={ourFoodMenuItem.menuItemBackgroundImage.sourceUrl}
+                    srcSet={
+                      ourFoodMenuItem.menuItemBackgroundImage.localFile
+                        .childImageSharp.fluid.srcSet
+                    }
                     alt={ourFoodMenuItem.menuItemBackgroundImage.altText}
                   />
                   <div className='half-circle'>
@@ -101,7 +113,10 @@ const Menu = () => {
               <Link to={ourDrinksMenuItem.menuItemLink.url}>
                 <div className='menu-card'>
                   <img
-                    src={ourDrinksMenuItem.menuItemBackgroundImage.sourceUrl}
+                    srcSet={
+                      ourDrinksMenuItem.menuItemBackgroundImage.localFile
+                        .childImageSharp.fluid.srcSet
+                    }
                     alt={ourDrinksMenuItem.menuItemBackgroundImage.altText}
                   />
                   <div className='half-circle'>

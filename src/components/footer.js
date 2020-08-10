@@ -1,6 +1,5 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import Img from 'gatsby-image';
 
 const Footer = () => {
   const data = useStaticQuery(graphql`
@@ -22,9 +21,13 @@ const Footer = () => {
             <div className='col-1'>
               <div className='footer-logo'>
                 <a href='index.html'>
-                  <Img
-                    fixed={data.placeholderImage.childImageSharp.fixed}
-                    alt='Lellos Logo'
+                  <img
+                    srcSet={
+                      content.heroSection.backgroundImage.localFile
+                        .childImageSharp.fluid.srcSet
+                    }
+                    className='bg-image'
+                    alt={content.heroSection.backgroundImage.altText}
                   />
                 </a>
               </div>

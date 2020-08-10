@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 
 const Reviews = () => {
   const data = useStaticQuery(graphql`
-    {
+    query reviewsSectionAndReviewItems {
       allWpCptReviewsFields {
         nodes {
           ReviewItems {
@@ -25,16 +25,24 @@ const Reviews = () => {
           }
         }
       }
-    }
-    fragment ReviewsSection on WpPage_Homepagesections {
-      reviewSection {
-        backgroundColor
-        aboveTitle
-        title
+
+      allWpPage(filter: { uri: { eq: "/" } }) {
+        nodes {
+          title
+          uri
+          id
+          HomePageSections {
+            reviewSection {
+              backgroundColor
+              aboveTitle
+              title
+            }
+          }
+        }
       }
     }
   `);
-  const content = data.allWpPage.nodes.HomePageSections;
+  const content = data.allWpPage.nodes[0].HomePageSections;
   return (
     <section
       className='reviews'
@@ -49,12 +57,15 @@ const Reviews = () => {
           <h2 className='reviews-title'>{content.reviewSection.title}</h2>
         </div>
         <div className='reviews-carousel'>
-          {data.wordpress.cpt_review_field.nodes.map((node) => (
+          {data.allWpCptReviewsFields.nodes.map((node) => (
             <div className='reviews-cards'>
               <div className='reviews-card'>
                 <img
                   className='reviews-card-thumbnail'
-                  src={node.ReviewItems.reviewItems.reviewerAvatar.sourceUrl}
+                  srcSet={
+                    node.ReviewItems.reviewItems.reviewerAvatar.localFile
+                      .childImageSharp.fluid.srcSet
+                  }
                   alt={node.ReviewItems.reviewItems.reviewerAvatar.altText}
                 />
                 <h5>{node.ReviewItems.reviewItems.reviewTitle}</h5>

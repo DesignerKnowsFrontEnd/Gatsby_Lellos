@@ -3,23 +3,32 @@ import { useStaticQuery, graphql, Link } from 'gatsby';
 
 const Chef = () => {
   const data = useStaticQuery(graphql`
-    fragment ChefSection on WpPage_Homepagesections {
-      chefSection {
-        backgroundColor
-        aboveTitle
-        title
-        paragraphText
-        button {
-          target
+    {
+      allWpPage(filter: { uri: { eq: "/" } }) {
+        nodes {
           title
-          url
-        }
-        imageOnTheRight {
-          altText
-          localFile {
-            childImageSharp {
-              fluid {
-                srcSet
+          uri
+          id
+          HomePageSections {
+            chefSection {
+              backgroundColor
+              aboveTitle
+              title
+              paragraphText
+              button {
+                target
+                title
+                url
+              }
+              imageOnTheRight {
+                altText
+                localFile {
+                  childImageSharp {
+                    fluid {
+                      srcSet
+                    }
+                  }
+                }
               }
             }
           }
@@ -27,7 +36,8 @@ const Chef = () => {
       }
     }
   `);
-  const content = data.allWpPage.nodes.HomePageSections;
+  const content = data.allWpPage.nodes[0].HomePageSections;
+
   return (
     <section
       className='chef'
@@ -51,7 +61,10 @@ const Chef = () => {
       <div className='chef-right-side'>
         <img
           className='chef-right-side-img'
-          src={content.chefSection.imageOnTheRight.sourceUrl}
+          srcSet={
+            content.chefSection.imageOnTheRight.localFile.childImageSharp.fluid
+              .srcSet
+          }
           alt={content.chefSection.imageOnTheRight.altText}
         />
       </div>

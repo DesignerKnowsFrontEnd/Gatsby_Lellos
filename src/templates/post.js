@@ -3,10 +3,12 @@ import { graphql } from 'gatsby';
 import Layout from '../components/layout';
 
 export const query = graphql`
-  query post {
-    wpPost(id: {}) {
-      id
+  {
+    wpPost {
+      uri
       title
+      date
+      id
     }
   }
 `;
