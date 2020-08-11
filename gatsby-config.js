@@ -32,7 +32,7 @@ module.exports = {
       resolve: 'gatsby-source-wordpress-experimental',
       options: {
         // Url to query from
-        url: 'http://gatsbylellostest.local/graphql',
+        url: 'http://test.lellos.co.uk/graphql',
         auth: {
           htaccess: {
             username: process.env.WP_USERNAME,
