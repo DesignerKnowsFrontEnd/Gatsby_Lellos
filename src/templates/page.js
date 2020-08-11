@@ -3,7 +3,7 @@ import { graphql } from 'gatsby';
 import Layout from '../components/layout';
 
 export const query = graphql`
-  query page {
+  query pageTemplate {
     wpPage {
       id
       title

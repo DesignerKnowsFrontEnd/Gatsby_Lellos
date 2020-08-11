@@ -1,4 +1,5 @@
 import React from 'react';
+import { graphql } from 'gatsby';
 import '../../node_modules/slick-carousel/slick/slick';
 import '../../node_modules/@fortawesome/fontawesome-free/js/fontawesome';
 import '../../node_modules/@fortawesome/fontawesome-free/js/brands';
