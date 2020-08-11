@@ -33,6 +33,12 @@ module.exports = {
       options: {
         // Url to query from
         url: 'http://gatsbylellostest.local/graphql',
+        auth: {
+          htaccess: {
+            username: process.env.WP_USERNAME,
+            password: process.env.WP_PASSWORD,
+          }
+        }
       },
       graphql: {
         showQueryOnError: false,
