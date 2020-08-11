@@ -4,7 +4,7 @@ import Layout from '../components/layout';
 
 export const query = graphql`
   query page {
-    wpPage(id: {}) {
+    wpPage {
       id
       title
       content
@@ -13,7 +13,7 @@ export const query = graphql`
 `;
 
 const PageTemplate = ({ data }) => {
-  const page = data.wpPage;
+  const page = data.wpPage
   return (
     <>
       <Layout>
