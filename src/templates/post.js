@@ -3,15 +3,17 @@ import { graphql } from 'gatsby';
 import Layout from '../components/layout';
 
 export const query = graphql`
-  {
-    wpPost {
-      uri
-      title
-      date
-      id
-      content
-    }
+query post($id: String!) {
+  wpPost(id: { eq: $id }) {
+    uri
+    title
+    date
+    id
+    excerpt
   }
+}
+
+
 `;
 
 const PostTemplate = ({ data }) => {

@@ -3,13 +3,14 @@ import { graphql } from 'gatsby';
 import Layout from '../components/layout';
 
 export const query = graphql`
-  query pageTemplate {
-    wpPage {
-      id
-      title
-      content
-    }
+query page($id: String!) {
+  wpPage(id: { eq: $id }) {
+    uri
+    title
+    id
+    content
   }
+}
 `;
 
 const PageTemplate = ({ data }) => {
