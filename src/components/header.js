@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import MainMenu from './Menus/mainMenu';
 
+
 const Header = () => {
   const data = useStaticQuery(graphql`
     query HeaderLogoQuery {
@@ -20,6 +21,7 @@ const Header = () => {
       }
     }
   `);
+  
   const logo = data.allWpCptWebsiteSetting.nodes[0].websiteSettingsFields;
   return (
     <nav id='navigation' className='navigation'>
@@ -32,9 +34,9 @@ const Header = () => {
           <div className='toggle'>
             <span className='bars'></span>
           </div>
-          <a href='#' className='btn primary-btn'>
+          <Link className='btn primary-btn' to='/open-table/'>
             Book Now
-          </a>
+          </Link>
         </div>
       </div>
     </nav>
