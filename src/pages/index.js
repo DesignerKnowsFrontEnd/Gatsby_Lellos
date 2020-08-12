@@ -15,6 +15,8 @@ import Reviews from '../components/home/reviews';
 import News from '../components/home/news';
 import Subscribe from '../components/subscribe';
 
+// Added a comment to force through a rebuild on gatsby cloud
+
 export const query = graphql`
   {
     allWpPage(filter: { uri: { eq: "/" } }) {
