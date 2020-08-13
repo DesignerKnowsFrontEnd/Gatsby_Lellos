@@ -13,6 +13,7 @@ const FoodMenu = () => {
           uri
           menuOrder
           slug
+          id
         }
       }
     }
