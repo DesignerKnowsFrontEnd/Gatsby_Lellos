@@ -10,6 +10,7 @@ export const query = graphql`
       date
       id
       excerpt
+      content
       customNewsPost {
         multiColumns {
           title
