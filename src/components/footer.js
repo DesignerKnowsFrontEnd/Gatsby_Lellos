@@ -148,7 +148,7 @@ const Footer = () => {
         <div className='container'>
           <div className='copyright-flex'>
             <p className='contact-info'>
-              Lello’s © {new Date().getFullYear()} All Rights Reserved ~{' '}
+              {logo.copyrightInformation}
               <a href='/privacy-policy/'>Privacy Policy</a>
             </p>
             <a href='#' className='btn btn-bttop'>
